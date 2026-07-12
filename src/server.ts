@@ -33,6 +33,24 @@ import { connectStravaTool, disconnectStravaTool, checkStravaConnectionTool } fr
 import { getSegmentLeaderboardTool } from './tools/getSegmentLeaderboard.js';
 import { loadConfig } from './config.js';
 
+// New tool imports
+import { createActivityTool } from './tools/createActivity.js';
+import { updateActivityTool } from './tools/updateActivity.js';
+import { getActivityCommentsTool } from './tools/getActivityComments.js';
+import { getActivityKudoersTool } from './tools/getActivityKudoers.js';
+import { getActivityZonesTool } from './tools/getActivityZones.js';
+import { updateAthleteTool } from './tools/updateAthlete.js';
+import { getClubTool } from './tools/getClub.js';
+import { listClubActivitiesTool } from './tools/listClubActivities.js';
+import { listClubMembersTool } from './tools/listClubMembers.js';
+import { listClubAdminsTool } from './tools/listClubAdmins.js';
+import { getGearTool } from './tools/getGear.js';
+import { getRouteStreamsTool } from './tools/getRouteStreams.js';
+import { getSegmentEffortStreamsTool } from './tools/getSegmentEffortStreams.js';
+import { getSegmentStreamsTool } from './tools/getSegmentStreams.js';
+import { uploadActivityTool } from './tools/uploadActivity.js';
+import { getUploadStatusTool } from './tools/getUploadStatus.js';
+
 // Import the actual client function
 // import {
 //     // exportRouteGpx as exportRouteGpxClient, // Removed unused alias
@@ -229,6 +247,24 @@ server.tool(
     getSegmentLeaderboardTool.inputSchema?.shape ?? {},
     getSegmentLeaderboardTool.execute
 );
+
+// --- Register New Strava API Tools ---
+server.tool(createActivityTool.name, createActivityTool.description, createActivityTool.inputSchema?.shape ?? {}, createActivityTool.execute);
+server.tool(updateActivityTool.name, updateActivityTool.description, updateActivityTool.inputSchema?.shape ?? {}, updateActivityTool.execute);
+server.tool(getActivityCommentsTool.name, getActivityCommentsTool.description, getActivityCommentsTool.inputSchema?.shape ?? {}, getActivityCommentsTool.execute);
+server.tool(getActivityKudoersTool.name, getActivityKudoersTool.description, getActivityKudoersTool.inputSchema?.shape ?? {}, getActivityKudoersTool.execute);
+server.tool(getActivityZonesTool.name, getActivityZonesTool.description, getActivityZonesTool.inputSchema?.shape ?? {}, getActivityZonesTool.execute);
+server.tool(updateAthleteTool.name, updateAthleteTool.description, updateAthleteTool.inputSchema?.shape ?? {}, updateAthleteTool.execute);
+server.tool(getClubTool.name, getClubTool.description, getClubTool.inputSchema?.shape ?? {}, getClubTool.execute);
+server.tool(listClubActivitiesTool.name, listClubActivitiesTool.description, listClubActivitiesTool.inputSchema?.shape ?? {}, listClubActivitiesTool.execute);
+server.tool(listClubMembersTool.name, listClubMembersTool.description, listClubMembersTool.inputSchema?.shape ?? {}, listClubMembersTool.execute);
+server.tool(listClubAdminsTool.name, listClubAdminsTool.description, listClubAdminsTool.inputSchema?.shape ?? {}, listClubAdminsTool.execute);
+server.tool(getGearTool.name, getGearTool.description, getGearTool.inputSchema?.shape ?? {}, getGearTool.execute);
+server.tool(getRouteStreamsTool.name, getRouteStreamsTool.description, getRouteStreamsTool.inputSchema?.shape ?? {}, getRouteStreamsTool.execute);
+server.tool(getSegmentEffortStreamsTool.name, getSegmentEffortStreamsTool.description, getSegmentEffortStreamsTool.inputSchema?.shape ?? {}, getSegmentEffortStreamsTool.execute);
+server.tool(getSegmentStreamsTool.name, getSegmentStreamsTool.description, getSegmentStreamsTool.inputSchema?.shape ?? {}, getSegmentStreamsTool.execute);
+server.tool(uploadActivityTool.name, uploadActivityTool.description, uploadActivityTool.inputSchema?.shape ?? {}, uploadActivityTool.execute);
+server.tool(getUploadStatusTool.name, getUploadStatusTool.description, getUploadStatusTool.inputSchema?.shape ?? {}, getUploadStatusTool.execute);
 
 // --- Helper Functions ---
 // Moving formatDuration to utils or keeping it here if broadly used.

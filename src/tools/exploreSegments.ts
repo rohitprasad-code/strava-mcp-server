@@ -1,4 +1,3 @@
-// import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"; // Removed
 import { z } from "zod";
 import {
     getLoggedInAthlete,

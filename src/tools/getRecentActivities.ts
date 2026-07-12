@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { getRecentActivities as fetchActivities, getLoggedInAthlete } from "../stravaClient.js";
+import { getLoggedInAthleteActivities as fetchActivities, getLoggedInAthlete } from "../stravaClient.js";
 // Reverted SDK type imports
 
 const GetRecentActivitiesInputSchema = z.object({
