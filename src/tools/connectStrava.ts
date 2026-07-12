@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { loadConfig, hasValidTokens, hasClientCredentials, getConfigPath } from '../config.js';
 import { startAuthServer, getAuthUrl } from '../auth/server.js';
-import { getAuthenticatedAthlete } from '../stravaClient.js';
+import { getLoggedInAthlete } from '../stravaClient.js';
 
 // Dynamic import for 'open' package (ESM)
 async function openBrowser(url: string): Promise<void> {
@@ -31,7 +31,7 @@ export const connectStravaTool = {
                     // Try to verify the tokens work
                     try {
                         const token = config.accessToken!;
-                        const athlete = await getAuthenticatedAthlete(token);
+                        const athlete = await getLoggedInAthlete(token);
                         return {
                             content: [{
                                 type: 'text' as const,
@@ -145,7 +145,7 @@ export const checkStravaConnectionTool = {
             // Try to verify the connection
             try {
                 const token = config.accessToken!;
-                const athlete = await getAuthenticatedAthlete(token);
+                const athlete = await getLoggedInAthlete(token);
                 return {
                     content: [{
                         type: 'text' as const,
