@@ -1037,6 +1037,7 @@ const RouteSchema = z.object({
   updated_at: z.string().datetime(),
   estimated_moving_time: z.number().int().optional().nullable(),
   timestamp: z.number().int().optional().nullable(),
+  segments: z.array(z.any()).optional().nullable(),
 });
 
 export type StravaRoute = z.infer<typeof RouteSchema>;
